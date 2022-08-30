@@ -120,33 +120,60 @@ interface ConfigOptions {
 
 ### Properties
 
-<span style="font-weight: bold; font-size: 1.3em"><span style="color:#049EF4">.gamepad</span>&nbsp;:&nbsp;<span style="color:grey">Gamepad</span></span>
+```tsx
+.gamepad : Gamepad
+```
+
 The raw gamepad object, data source of the GamepadWrapper instance.
 
 ### Methods
 
-<span style="font-weight: bold; font-size: 1.3em"><span style="color:#049EF4">.getButtonValue</span>&nbsp;(&nbsp;buttonId&nbsp;:&nbsp;<span style="color:grey">string</span>&nbsp;)&nbsp;:&nbsp;<span style="color:grey">number</span></span>
+```tsx
+.getButtonValue(buttonId: string): number
+```
+
 Returns the value of the button identified by buttonId. Value should range from 0.0 to 1.0.
 
-<span style="font-weight: bold; font-size: 1.3em"><span style="color:#049EF4">.getButton</span>&nbsp;(&nbsp;buttonId&nbsp;:&nbsp;<span style="color:grey">string</span>&nbsp;)&nbsp;:&nbsp;<span style="color:grey">boolean</span></span>
+```tsx
+.getButton(buttonId: string): boolean
+```
+
 Returns true while the button identified by buttonId is held down.
 
-<span style="font-weight: bold; font-size: 1.3em"><span style="color:#049EF4">.getButtonDown</span>&nbsp;(&nbsp;buttonId&nbsp;:&nbsp;<span style="color:grey">string</span>&nbsp;)&nbsp;:&nbsp;<span style="color:grey">boolean</span></span>
+```tsx
+.getButtonDown(buttonId: string): boolean
+```
+
 Returns true during the frame the user pressed down the button identified by buttonId.
 
-<span style="font-weight: bold; font-size: 1.3em"><span style="color:#049EF4">.getButtonUp</span>&nbsp;(&nbsp;buttonId&nbsp;:&nbsp;<span style="color:grey">string</span>&nbsp;)&nbsp;:&nbsp;<span style="color:grey">boolean</span></span>
+```tsx
+.getButtonUp(buttonId: string): boolean
+```
+
 Returns true the first frame the user releases the button identified by buttonId.
 
-<span style="font-weight: bold; font-size: 1.3em"><span style="color:#049EF4">.getAxis</span>&nbsp;(&nbsp;axisId&nbsp;:&nbsp;<span style="color:grey">string</span>&nbsp;)&nbsp;:&nbsp;<span style="color:grey">number</span></span>
+```tsx
+.getAxis(axisId: string): number
+```
+
 Returns the value of the axis identified by axisId. Value should range from -1.0 to 1.0.
 
-<span style="font-weight: bold; font-size: 1.3em"><span style="color:#049EF4">.get2DInputAngle</span>&nbsp;(&nbsp;buttonId&nbsp;:&nbsp;<span style="color:grey">string</span>&nbsp;)&nbsp;:&nbsp;<span style="color:grey">number</span></span>
+```tsx
+.get2DInputAngle(buttonId: string): number
+```
+
 Returns the angle between the input 2D vector and 2D vector (0, 1).
 
-<span style="font-weight: bold; font-size: 1.3em"><span style="color:#049EF4">.get2DInputValue</span>&nbsp;(&nbsp;buttonId&nbsp;:&nbsp;<span style="color:grey">string</span>&nbsp;)&nbsp;:&nbsp;<span style="color:grey">number</span></span>
+```tsx
+.get2DInputValue(buttonId: string): number
+```
+
 Returns the Euclidean length of the input 2D vector.
 
-<span style="font-weight: bold; font-size: 1.3em"><span style="color:#049EF4">.getHapticActuator</span>&nbsp;(&nbsp;actuatorIdx&nbsp;:&nbsp;<span style="color:grey">number</span>&nbsp;)&nbsp;:&nbsp;<span style="color:grey">GamepadHapticActuator?</span></span>
+```tsx
+.getHapticActuator(actuatorIdx: number): GamepadHapticActuator | never
+```
+
 Returns the [GamepadHapticActuator](https://developer.mozilla.org/en-US/docs/Web/API/GamepadHapticActuator) of actuatorIdx, returns null if actuator is not available.
 
 ### Input Mapping Enums
