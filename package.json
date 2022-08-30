@@ -1,7 +1,7 @@
 {
   "name": "gamepad-wrapper",
-  "version": "0.1.0",
-  "description": "Game Loop Based Gamepad API Wrapper",
+  "version": "1.0.0",
+  "description": "Game-Loop-Based Gamepad API Wrapper",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -12,6 +12,23 @@
     "type": "git",
     "url": "git+https://github.com/felixtrz/gamepad-wrapper.git"
   },
+  "keywords": [
+    "gamepad",
+    "game",
+    "game loop",
+    "html5",
+    "controller",
+    "mapping",
+    "input",
+    "webxr",
+    "webvr",
+    "joystick",
+    "thumbstick",
+    "touchpad",
+    "trigger",
+    "xbox",
+    "dualshock"
+  ],
   "author": "Felix Zhang <felixtrz96@gmail.com>",
   "license": "MIT",
   "bugs": {
