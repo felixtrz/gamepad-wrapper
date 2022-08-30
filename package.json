@@ -1,6 +1,6 @@
 {
   "name": "gamepad-wrapper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Game-Loop-Based Gamepad API Wrapper",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
