@@ -14,6 +14,7 @@ import {
 interface ConfigOptions {
 	buttonPressValueMin: number | null;
 	buttonPressValueMax: number | null;
+	buttonClickThreshold: number | null;
 }
 
 interface ButtonFrameData {
@@ -32,14 +33,13 @@ export default class GamepadWrapper {
 	private _buttons: Array<ButtonState> = [];
 	private _buttonPressValueMin: number;
 	private _buttonPressValueMax: number;
+	private _buttonClickThreshold: number;
 
-	constructor(
-		gamepad: Gamepad,
-		options: ConfigOptions = { buttonPressValueMin: 0, buttonPressValueMax: 1 },
-	) {
+	constructor(gamepad: Gamepad, options: ConfigOptions | any = {}) {
 		this._gamepad = gamepad;
 		this._buttonPressValueMin = options.buttonPressValueMin ?? 0;
 		this._buttonPressValueMax = options.buttonPressValueMax ?? 1;
+		this._buttonClickThreshold = options.buttonClickThreshold ?? 0.9;
 		for (
 			let buttonIdx = 0;
 			buttonIdx < this._gamepad.buttons.length;
@@ -134,6 +134,14 @@ export default class GamepadWrapper {
 		return (
 			this._buttons[buttonIdx].prevFrame.value >= this._buttonPressValueMax &&
 			this._buttons[buttonIdx].currFrame.value < this._buttonPressValueMax
+		);
+	}
+
+	getButtonClick(buttonId: string): boolean {
+		const buttonIdx = this.getButtonIdx(buttonId);
+		return (
+			this._buttons[buttonIdx].prevFrame.value <= this._buttonClickThreshold &&
+			this._buttons[buttonIdx].currFrame.value > this._buttonClickThreshold
 		);
 	}
 

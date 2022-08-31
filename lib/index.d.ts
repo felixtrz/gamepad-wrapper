@@ -1,13 +1,15 @@
 interface ConfigOptions {
     buttonPressValueMin: number | null;
     buttonPressValueMax: number | null;
+    buttonClickThreshold: number | null;
 }
 export default class GamepadWrapper {
     private _gamepad;
     private _buttons;
     private _buttonPressValueMin;
     private _buttonPressValueMax;
-    constructor(gamepad: Gamepad, options?: ConfigOptions);
+    private _buttonClickThreshold;
+    constructor(gamepad: Gamepad, options?: ConfigOptions | any);
     update(): void;
     get gamepad(): Gamepad;
     private getButtonIdx;
@@ -16,6 +18,7 @@ export default class GamepadWrapper {
     getButton(buttonId: string): boolean;
     getButtonDown(buttonId: string): boolean;
     getButtonUp(buttonId: string): boolean;
+    getButtonClick(buttonId: string): boolean;
     getAxis(axisId: string): number;
     get2DInputAngle(buttonId: string): number;
     get2DInputValue(buttonId: string): number;

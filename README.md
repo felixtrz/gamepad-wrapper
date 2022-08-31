@@ -1,5 +1,9 @@
 # Gamepad Wrapper 🎮
 
+[![npm version](https://badge.fury.io/js/gamepad-wrapper.svg)](https://badge.fury.io/js/gamepad-wrapper)
+[![license](/badges/typescript-badge.svg)](https://www.typescriptlang.org/)
+[![license](/badges/license-badge.svg)](/LICENSE.md)
+
 A **Game-Loop-Based**, Non-Event-Driven, **Lightweight** [Gamepad](https://www.w3.org/TR/gamepad/) and [WebXR Gamepad](https://immersive-web.github.io/webxr-gamepads-module/#dom-xrinputsource-gamepad) Wrapper
 
 ## Table of contents
@@ -106,72 +110,95 @@ const thumbstickValue = gamepadWrapper.get2DInputValue(
 ### Constructor
 
 ```tsx
-GamepadWrapper(gamepad: Gamepad, options: ConfigOptions | null)
+GamepadWrapper( gamepad : Gamepad, options : ConfigOptions | any )
 ```
 
-ConfigOptions can be used to tune the deadzone for certain input on the gamepad. For example when an old and dusty gamepad cannot reliably register trigger input as 1.0 when fully pressed down, specifying buttonPressValueMax as 0.98 can help resolve the issue.
+ConfigOptions can be used to tune the deadzone for certain input on the gamepad. For example when an old and dusty gamepad cannot reliably register trigger input as 1.0 when fully pressed down, specifying buttonPressValueMax as 0.98 can help resolve the issue. User can also specify buttonClickThreshold as the threshold to register a click event.
 
 ```tsx
 interface ConfigOptions {
 	buttonPressValueMin: number | null;
 	buttonPressValueMax: number | null;
+	buttonClickThreshold: number | null;
 }
 ```
 
 ### Properties
 
-```tsx
-.gamepad : Gamepad
-```
+#### .gamepad : Gamepad
 
 The raw gamepad object, data source of the GamepadWrapper instance.
 
 ### Methods
 
+#### .getButtonValue
+
 ```tsx
-.getButtonValue(buttonId: string): number
+getButtonValue( buttonId : string ) : number
 ```
 
 Returns the value of the button identified by buttonId. Value should range from 0.0 to 1.0.
 
+#### .getButton
+
 ```tsx
-.getButton(buttonId: string): boolean
+getButton( buttonId : string ) : boolean
 ```
 
 Returns true while the button identified by buttonId is held down.
 
+#### .getButtonDown
+
 ```tsx
-.getButtonDown(buttonId: string): boolean
+getButtonDown( buttonId : string ) : boolean
 ```
 
 Returns true during the frame the user pressed down the button identified by buttonId.
 
+#### .getButtonUp
+
 ```tsx
-.getButtonUp(buttonId: string): boolean
+getButtonUp( buttonId : string ) : boolean
 ```
 
 Returns true the first frame the user releases the button identified by buttonId.
 
+#### .getButtonClick
+
 ```tsx
-.getAxis(axisId: string): number
+getButtonClick( buttonId : string ) : boolean
+```
+
+Returns true the first frame the user pressed the button identified by buttonId down to a point exceeding the buttonClickThreshold.
+
+#### .getAxis
+
+```tsx
+getAxis( axisId : string ) : number
 ```
 
 Returns the value of the axis identified by axisId. Value should range from -1.0 to 1.0.
 
+#### .get2DInputAngle
+
 ```tsx
-.get2DInputAngle(buttonId: string): number
+get2DInputAngle( buttonId : string ) : number
 ```
 
 Returns the angle between the input 2D vector and 2D vector (0, 1).
 
+#### .get2DInputValue
+
 ```tsx
-.get2DInputValue(buttonId: string): number
+get2DInputValue( buttonId : string ) : number
 ```
 
 Returns the Euclidean length of the input 2D vector.
 
+#### .getHapticActuator
+
 ```tsx
-.getHapticActuator(actuatorIdx: number): GamepadHapticActuator | never
+getHapticActuator( actuatorIdx : number ) : GamepadHapticActuator | never
 ```
 
 Returns the [GamepadHapticActuator](https://developer.mozilla.org/en-US/docs/Web/API/GamepadHapticActuator) of actuatorIdx, returns null if actuator is not available.
