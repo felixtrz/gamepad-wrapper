@@ -1,8 +1,9 @@
 # Gamepad Wrapper 🎮
 
 [![npm version](https://badge.fury.io/js/gamepad-wrapper.svg)](https://badge.fury.io/js/gamepad-wrapper)
-[![license](/badges/typescript-badge.svg)](https://www.typescriptlang.org/)
-[![license](/badges/license-badge.svg)](/LICENSE.md)
+[![language](https://badgen.net/badge/icon/typescript?icon=typescript&label)](https://www.typescriptlang.org/)
+[![npm download](https://badgen.net/npm/dw/gamepad-wrapper)](https://www.npmjs.com/package/gamepad-wrapper)
+[![license](https://badgen.net/github/license/felixtrz/gamepad-wrapper)](/LICENSE.md)
 
 A **Game-Loop-Based**, Non-Event-Driven, **Lightweight** [Gamepad](https://www.w3.org/TR/gamepad/) and [WebXR Gamepad](https://immersive-web.github.io/webxr-gamepads-module/#dom-xrinputsource-gamepad) Wrapper
 
