@@ -28,7 +28,7 @@ interface ButtonState {
 	pressedSince: number;
 }
 
-export default class GamepadWrapper {
+export class GamepadWrapper {
 	private _gamepad: Gamepad;
 	private _buttons: Array<ButtonState> = [];
 	private _buttonPressValueMin: number;

@@ -1,18 +1,18 @@
 export const STANDARD_BUTTONS = {
 	RC_BOTTOM: 'RC_BOTTOM', // Bottom button in right cluster
-	RC_RIGHT: 'RC_RIGHT', // Right button in right clustert cluster
+	RC_RIGHT: 'RC_RIGHT', // Right button in right cluster
 	RC_LEFT: 'RC_LEFT', // Left button in right cluster
 	RC_TOP: 'RC_TOP', // Top button in right cluster
 	BUMPER_LEFT: 'BUMPER_LEFT', // Top left front button
-	BUMPER_RIGHT: 'BUMPER_RIGHT', // Top left front button
+	BUMPER_RIGHT: 'BUMPER_RIGHT', // Top right front button
 	TRIGGER_LEFT: 'TRIGGER_LEFT', // Bottom left front button
-	TRIGGER_RIGHT: 'TRIGGER_RIGHT', // Bottom left front button
+	TRIGGER_RIGHT: 'TRIGGER_RIGHT', // Bottom right front button
 	CC_LEFT: 'CC_LEFT', // Left button in center cluster
 	CC_RIGHT: 'CC_RIGHT', // Right button in center cluster
 	THUMBSTICK_LEFT: 'THUMBSTICK_LEFT', // Left stick pressed button
 	THUMBSTICK_RIGHT: 'THUMBSTICK_RIGHT', // Right stick pressed button
 	LC_BOTTOM: 'LC_BOTTOM', // Bottom button in left cluster
-	LC_RIGHT: 'LC_RIGHT', // Right button in left clustert cluster
+	LC_RIGHT: 'LC_RIGHT', // Right button in left cluster
 	LC_LEFT: 'LC_LEFT', // Left button in left cluster
 	LC_TOP: 'LC_TOP', // Top button in left cluster
 	CC_CENTER: 'CC_CENTER', // Center button in center cluster

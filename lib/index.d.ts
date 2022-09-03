@@ -3,7 +3,7 @@ interface ConfigOptions {
     buttonPressValueMax: number | null;
     buttonClickThreshold: number | null;
 }
-export default class GamepadWrapper {
+export declare class GamepadWrapper {
     private _gamepad;
     private _buttons;
     private _buttonPressValueMin;

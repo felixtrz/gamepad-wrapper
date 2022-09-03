@@ -43,9 +43,9 @@ To properly import GameWrapper:
 
 ```js
 // import just the GamepadWrapper class
-import GamepadWrapper from 'gamepad-wrapper';
+import { GamepadWrapper } from 'gamepad-wrapper';
 // or import button/axes Enums with it
-import GamepadWrapper, { BUTTONS, AXES } from 'gamepad-wrapper';
+import { GamepadWrapper, BUTTONS, AXES } from 'gamepad-wrapper';
 ```
 
 To register and update gamepads with GameWrapper:
@@ -208,6 +208,28 @@ Returns the [GamepadHapticActuator](https://developer.mozilla.org/en-US/docs/Web
 
 - Standard Gamepad Mapping: **[standard-mapping.ts](/src/standard-mapping.ts)**
 - XR Standard Gamepad Mapping: **[xr-standard-mapping.ts](/src/xr-standard-mapping.ts)**
+
+Standard Gamepad Mapping
+
+| Button ID                         | Description                     | XBox          |
+| --------------------------------- | ------------------------------- | ------------- |
+| BUTTONS.STANDARD.RC_BOTTOM        | Bottom button in right cluster  | A             |
+| BUTTONS.STANDARD.RC_RIGHT         | Right button in right cluster   | B             |
+| BUTTONS.STANDARD.RC_LEFT          | Left button in right cluster    | X             |
+| BUTTONS.STANDARD.RC_TOP           | Top button in right cluster     | Y             |
+| BUTTONS.STANDARD.BUMPER_LEFT      | Top left front button           | Left Bumper   |
+| BUTTONS.STANDARD.BUMPER_RIGHT     | Top right front button          | Right Bumper  |
+| BUTTONS.STANDARD.TRIGGER_LEFT     | Bottom left front button        | Left Trigger  |
+| BUTTONS.STANDARD.TRIGGER_RIGHT    | Bottom right front button       | Right Trigger |
+| BUTTONS.STANDARD.CC_LEFT          | Left button in center cluster   | View Button   |
+| BUTTONS.STANDARD.CC_RIGHT         | Right button in center cluster  | Menu Button   |
+| BUTTONS.STANDARD.THUMBSTICK_LEFT  | Left stick pressed button       | Left Stick    |
+| BUTTONS.STANDARD.THUMBSTICK_RIGHT | Right stick pressed button      | Right Stick   |
+| BUTTONS.STANDARD.LC_BOTTOM        | Bottom button in left cluster   | D-pad Down    |
+| BUTTONS.STANDARD.LC_RIGHT         | Right button in left cluster    | D-pad Right   |
+| BUTTONS.STANDARD.LC_LEFT          | Left button in left cluster     | D-pad Left    |
+| BUTTONS.STANDARD.LC_TOP           | Top button in left cluster      | D-pad Up      |
+| BUTTONS.STANDARD.CC_CENTER        | Center button in center cluster | Xbox Button   |
 
 ## License
 
