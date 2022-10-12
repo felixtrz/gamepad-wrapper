@@ -111,43 +111,67 @@ export class GamepadWrapper {
 		}
 	}
 
+	getButtonValueByIndex(buttonIdx: number): number {
+		return this._buttons[buttonIdx].currFrame.value;
+	}
+
 	getButtonValue(buttonId: string): number {
 		const buttonIdx = this.getButtonIdx(buttonId);
-		return this._buttons[buttonIdx].currFrame.value;
+		return this.getButtonValueByIndex(buttonIdx);
+	}
+
+	getButtonByIndex(buttonIdx: number): boolean {
+		return this._buttons[buttonIdx].currFrame.value > this._buttonPressValueMin;
 	}
 
 	getButton(buttonId: string): boolean {
 		const buttonIdx = this.getButtonIdx(buttonId);
-		return this._buttons[buttonIdx].currFrame.value > this._buttonPressValueMin;
+		return this.getButtonByIndex(buttonIdx);
 	}
 
-	getButtonDown(buttonId: string): boolean {
-		const buttonIdx = this.getButtonIdx(buttonId);
+	getButtonDownByIndex(buttonIdx: number): boolean {
 		return (
 			this._buttons[buttonIdx].prevFrame.value <= this._buttonPressValueMin &&
 			this._buttons[buttonIdx].currFrame.value > this._buttonPressValueMin
 		);
 	}
 
-	getButtonUp(buttonId: string): boolean {
+	getButtonDown(buttonId: string): boolean {
 		const buttonIdx = this.getButtonIdx(buttonId);
+		return this.getButtonDownByIndex(buttonIdx);
+	}
+
+	getButtonUpByIndex(buttonIdx: number): boolean {
 		return (
 			this._buttons[buttonIdx].prevFrame.value >= this._buttonPressValueMax &&
 			this._buttons[buttonIdx].currFrame.value < this._buttonPressValueMax
 		);
 	}
 
-	getButtonClick(buttonId: string): boolean {
+	getButtonUp(buttonId: string): boolean {
 		const buttonIdx = this.getButtonIdx(buttonId);
+		return this.getButtonByIndex(buttonIdx);
+	}
+
+	getButtonClickByIndex(buttonIdx: number): boolean {
 		return (
 			this._buttons[buttonIdx].prevFrame.value <= this._buttonClickThreshold &&
 			this._buttons[buttonIdx].currFrame.value > this._buttonClickThreshold
 		);
 	}
 
+	getButtonClick(buttonId: string): boolean {
+		const buttonIdx = this.getButtonIdx(buttonId);
+		return this.getButtonClickByIndex(buttonIdx);
+	}
+
+	getAxisByIndex(axisIdx: number): number {
+		return this._gamepad.axes[axisIdx];
+	}
+
 	getAxis(axisId: string): number {
 		const axisIdx = this.getAxisIdx(axisId);
-		return this._gamepad.axes[axisIdx];
+		return this.getAxisByIndex(axisIdx);
 	}
 
 	get2DInputAngle(buttonId: string): number {

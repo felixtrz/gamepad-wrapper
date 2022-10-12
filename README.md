@@ -140,6 +140,14 @@ getButtonValue( buttonId : string ) : number
 
 Returns the value of the button identified by buttonId. Value should range from 0.0 to 1.0.
 
+#### .getButtonValueByIndex
+
+```tsx
+getButtonValueByIndex( buttonIdx : number ) : number
+```
+
+Bypasses the button id mapping and directly query by gamepad button index. Returns the value of the button identified by buttonId. Value should range from 0.0 to 1.0.
+
 #### .getButton
 
 ```tsx
@@ -147,6 +155,14 @@ getButton( buttonId : string ) : boolean
 ```
 
 Returns true while the button identified by buttonId is held down.
+
+#### .getButtonByIndex
+
+```tsx
+getButtonByIndex( buttonIdx : number ) : boolean
+```
+
+Bypasses the button id mapping and directly query by gamepad button index. Returns true while the button identified by buttonId is held down.
 
 #### .getButtonDown
 
@@ -156,6 +172,14 @@ getButtonDown( buttonId : string ) : boolean
 
 Returns true during the frame the user pressed down the button identified by buttonId.
 
+#### .getButtonDownByIndex
+
+```tsx
+getButtonDownByIndex( buttonIdx : number ) : boolean
+```
+
+Bypasses the button id mapping and directly query by gamepad button index. Returns true during the frame the user pressed down the button identified by buttonId.
+
 #### .getButtonUp
 
 ```tsx
@@ -163,6 +187,14 @@ getButtonUp( buttonId : string ) : boolean
 ```
 
 Returns true the first frame the user releases the button identified by buttonId.
+
+#### .getButtonUpByIndex
+
+```tsx
+getButtonUpByIndex( buttonIdx : number ) : boolean
+```
+
+Bypasses the button id mapping and directly query by gamepad button index. Returns true the first frame the user releases the button identified by buttonId.
 
 #### .getButtonClick
 
@@ -172,6 +204,14 @@ getButtonClick( buttonId : string ) : boolean
 
 Returns true the first frame the user pressed the button identified by buttonId down to a point exceeding the buttonClickThreshold.
 
+#### .getButtonClickByIndex
+
+```tsx
+getButtonClickByIndex( buttonIdx : number ) : boolean
+```
+
+Bypasses the button id mapping and directly query by gamepad button index. Returns true the first frame the user pressed the button identified by buttonId down to a point exceeding the buttonClickThreshold.
+
 #### .getAxis
 
 ```tsx
@@ -179,6 +219,14 @@ getAxis( axisId : string ) : number
 ```
 
 Returns the value of the axis identified by axisId. Value should range from -1.0 to 1.0.
+
+#### .getAxisByIndex
+
+```tsx
+getAxisByIndex( axisIdx : number ) : number
+```
+
+Bypasses the button id mapping and directly query by gamepad button index. Returns the value of the axis identified by axisId. Value should range from -1.0 to 1.0.
 
 #### .get2DInputAngle
 

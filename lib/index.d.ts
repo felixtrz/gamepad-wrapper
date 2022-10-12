@@ -14,11 +14,17 @@ export declare class GamepadWrapper {
     get gamepad(): Gamepad;
     private getButtonIdx;
     private getAxisIdx;
+    getButtonValueByIndex(buttonIdx: number): number;
     getButtonValue(buttonId: string): number;
+    getButtonByIndex(buttonIdx: number): boolean;
     getButton(buttonId: string): boolean;
+    getButtonDownByIndex(buttonIdx: number): boolean;
     getButtonDown(buttonId: string): boolean;
+    getButtonUpByIndex(buttonIdx: number): boolean;
     getButtonUp(buttonId: string): boolean;
+    getButtonClickByIndex(buttonIdx: number): boolean;
     getButtonClick(buttonId: string): boolean;
+    getAxisByIndex(axisIdx: number): number;
     getAxis(axisId: string): number;
     get2DInputAngle(buttonId: string): number;
     get2DInputValue(buttonId: string): number;
