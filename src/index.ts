@@ -3,13 +3,13 @@ import {
 	STANDARD_AXES_MAPPING,
 	STANDARD_BUTTONS,
 	STANDARD_BUTTON_MAPPING,
-} from './standard-mapping';
+} from './standard-mapping.js';
 import {
 	XR_STANDARD_AXES,
 	XR_STANDARD_AXES_MAPPING,
 	XR_STANDARD_BUTTONS,
 	XR_STANDARD_BUTTON_MAPPING,
-} from './xr-standard-mapping';
+} from './xr-standard-mapping.js';
 
 interface ConfigOptions {
 	buttonPressValueMin: number | null;
