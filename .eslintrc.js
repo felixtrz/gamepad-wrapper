@@ -2,8 +2,15 @@ module.exports = {
 	env: {
 		browser: true,
 		es2021: true,
+		node: true,
 	},
-	extends: ['eslint:recommended', 'prettier'],
+	extends: [
+		'eslint:recommended',
+		'plugin:@typescript-eslint/recommended',
+		'prettier',
+	],
+	parser: '@typescript-eslint/parser',
+	plugins: ['@typescript-eslint', 'prettier'],
 	parserOptions: {
 		ecmaVersion: 12,
 		sourceType: 'module',
@@ -24,5 +31,7 @@ module.exports = {
 			{ vars: 'all', args: 'all', argsIgnorePattern: '^_' },
 		],
 		'lines-between-class-members': ['warn', 'always'],
+		'prettier/prettier': 'error',
 	},
+	root: true,
 };

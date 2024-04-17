@@ -111,8 +111,12 @@ export class GamepadWrapper {
 		}
 	}
 
-	getButtonValueByIndex(buttonIdx: number): number {
-		return this._buttons[buttonIdx].currFrame.value;
+	getButtonValueByIndex(buttonIdx: number) {
+		if (this._buttons[buttonIdx]) {
+			return this._buttons[buttonIdx].currFrame.value;
+		} else {
+			return 0;
+		}
 	}
 
 	getButtonValue(buttonId: string): number {
@@ -121,7 +125,13 @@ export class GamepadWrapper {
 	}
 
 	getButtonByIndex(buttonIdx: number): boolean {
-		return this._buttons[buttonIdx].currFrame.value > this._buttonPressValueMin;
+		if (this._buttons[buttonIdx]) {
+			return (
+				this._buttons[buttonIdx].currFrame.value > this._buttonPressValueMin
+			);
+		} else {
+			return false;
+		}
 	}
 
 	getButton(buttonId: string): boolean {
@@ -130,10 +140,14 @@ export class GamepadWrapper {
 	}
 
 	getButtonDownByIndex(buttonIdx: number): boolean {
-		return (
-			this._buttons[buttonIdx].prevFrame.value <= this._buttonPressValueMin &&
-			this._buttons[buttonIdx].currFrame.value > this._buttonPressValueMin
-		);
+		if (this._buttons[buttonIdx]) {
+			return (
+				this._buttons[buttonIdx].prevFrame.value <= this._buttonPressValueMin &&
+				this._buttons[buttonIdx].currFrame.value > this._buttonPressValueMin
+			);
+		} else {
+			return false;
+		}
 	}
 
 	getButtonDown(buttonId: string): boolean {
@@ -142,10 +156,14 @@ export class GamepadWrapper {
 	}
 
 	getButtonUpByIndex(buttonIdx: number): boolean {
-		return (
-			this._buttons[buttonIdx].prevFrame.value >= this._buttonPressValueMax &&
-			this._buttons[buttonIdx].currFrame.value < this._buttonPressValueMax
-		);
+		if (this._buttons[buttonIdx]) {
+			return (
+				this._buttons[buttonIdx].prevFrame.value >= this._buttonPressValueMax &&
+				this._buttons[buttonIdx].currFrame.value < this._buttonPressValueMax
+			);
+		} else {
+			return false;
+		}
 	}
 
 	getButtonUp(buttonId: string): boolean {
@@ -154,10 +172,15 @@ export class GamepadWrapper {
 	}
 
 	getButtonClickByIndex(buttonIdx: number): boolean {
-		return (
-			this._buttons[buttonIdx].prevFrame.value <= this._buttonClickThreshold &&
-			this._buttons[buttonIdx].currFrame.value > this._buttonClickThreshold
-		);
+		if (!this._buttons[buttonIdx]) {
+			return (
+				this._buttons[buttonIdx].prevFrame.value <=
+					this._buttonClickThreshold &&
+				this._buttons[buttonIdx].currFrame.value > this._buttonClickThreshold
+			);
+		} else {
+			return false;
+		}
 	}
 
 	getButtonClick(buttonId: string): boolean {
@@ -177,10 +200,10 @@ export class GamepadWrapper {
 	get2DInputAngle(buttonId: string): number {
 		const axisX = this.getAxis(buttonId + '_X');
 		const axisY = this.getAxis(buttonId + '_Y');
-		let rad = Math.atan(axisX / axisY);
-		if (axisX == 0 && axisY == 0) {
+		if (axisX == null || axisY == null || (axisX == 0 && axisY == 0)) {
 			return NaN;
 		}
+		let rad = Math.atan(axisX / axisY);
 		if (axisX >= 0) {
 			if (axisY < 0) {
 				rad *= -1;
@@ -208,6 +231,7 @@ export class GamepadWrapper {
 	}
 
 	getHapticActuator(actuatorIdx: number): GamepadHapticActuator | never {
+		// @ts-ignore
 		const hapticActuator = this._gamepad.hapticActuators[actuatorIdx];
 		if (!hapticActuator) {
 			throw 'Requested haptic actuator does not exist in gamepad';
@@ -225,4 +249,11 @@ export const BUTTONS = {
 export const AXES = {
 	STANDARD: STANDARD_AXES,
 	XR_STANDARD: XR_STANDARD_AXES,
+};
+
+export {
+	STANDARD_AXES,
+	STANDARD_BUTTONS,
+	XR_STANDARD_AXES as XR_AXES,
+	XR_STANDARD_BUTTONS as XR_BUTTONS,
 };
