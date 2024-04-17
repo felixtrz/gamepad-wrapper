@@ -172,7 +172,7 @@ export class GamepadWrapper {
 	}
 
 	getButtonClickByIndex(buttonIdx: number): boolean {
-		if (!this._buttons[buttonIdx]) {
+		if (this._buttons[buttonIdx]) {
 			return (
 				this._buttons[buttonIdx].prevFrame.value <=
 					this._buttonClickThreshold &&
