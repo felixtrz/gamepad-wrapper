@@ -82,12 +82,12 @@ export class GamepadWrapper {
 			this._gamepad.mapping == 'standard'
 				? STANDARD_BUTTON_MAPPING[
 						buttonId as keyof typeof STANDARD_BUTTON_MAPPING
-				  ]
+					]
 				: this._gamepad.mapping == 'xr-standard'
-				? XR_STANDARD_BUTTON_MAPPING[
-						buttonId as keyof typeof XR_STANDARD_BUTTON_MAPPING
-				  ]
-				: null;
+					? XR_STANDARD_BUTTON_MAPPING[
+							buttonId as keyof typeof XR_STANDARD_BUTTON_MAPPING
+						]
+					: null;
 		if (buttonIdx == null) {
 			throw `Button "${buttonId}" does not exist in layout "${this._gamepad.mapping}"`;
 		} else {
@@ -100,10 +100,10 @@ export class GamepadWrapper {
 			this._gamepad.mapping == 'standard'
 				? STANDARD_AXES_MAPPING[axisId as keyof typeof STANDARD_AXES_MAPPING]
 				: this._gamepad.mapping == 'xr-standard'
-				? XR_STANDARD_AXES_MAPPING[
-						axisId as keyof typeof XR_STANDARD_AXES_MAPPING
-				  ]
-				: null;
+					? XR_STANDARD_AXES_MAPPING[
+							axisId as keyof typeof XR_STANDARD_AXES_MAPPING
+						]
+					: null;
 		if (axisIdx == null) {
 			throw `Axis "${axisId}" does not exist in layout "${this._gamepad.mapping}"`;
 		} else {
@@ -168,7 +168,7 @@ export class GamepadWrapper {
 
 	getButtonUp(buttonId: string): boolean {
 		const buttonIdx = this.getButtonIdx(buttonId);
-		return this.getButtonByIndex(buttonIdx);
+		return this.getButtonUpByIndex(buttonIdx);
 	}
 
 	getButtonClickByIndex(buttonIdx: number): boolean {
